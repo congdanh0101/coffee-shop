@@ -1,0 +1,86 @@
+package nhom2.project.data;
+
+import java.sql.Connection;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import org.hibernate.Transaction;
+
+import nhom2.project.model.Product;
+import nhom2.project.util.HibernateUtil;
+
+public class ProductDAO {
+	// init
+	Connection conn;
+
+	// Constructor
+	public Product getProduct(int ID) {
+		Transaction trans = null;
+		Product product = null;
+
+		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
+			trans = ss.beginTransaction();
+			product = ss.get(Product.class, ID);
+			trans.commit();
+		} catch (Exception e) {
+			if (trans != null) {
+				trans.rollback();
+			}
+			e.printStackTrace();
+		}
+
+		return product;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Product> getAllProduct() {
+		try {
+			return HibernateUtil.getSessionFactory().openSession().createQuery("FROM Product").getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+
+		return null;
+	}
+
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<Product> getAllProductByCategory(int cid) {
+//		List<Product> result = new ArrayList<Product>();
+//		Transaction trans = null;
+//		try {
+//			conn = MySQLConnectionUtils.getConnection();
+//			String sql = "SELECT * FROM learningtools.product\r\n"
+//					+ "where category_id =  " + cid;
+//			Statement smtm = conn.createStatement();
+//			ResultSet rs = smtm.executeQuery(sql);
+//			while (rs.next()) {
+//				int id = rs.getInt(1);
+//				String description = rs.getString(2);
+//				String img = rs.getString(3);
+//				String name = rs.getString(4);
+//				int price = rs.getInt(5);
+//				Category cate = new Category();
+//				cate.setId(rs.getInt(6));
+//				result.add(new Product(id,name,price,description,cate,img));
+//			}
+//			rs.close();
+//			smtm.close();
+//			MySQLConnectionUtils.disconnectMySQL(conn);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			// TODO: handle exception
+//		}
+
+		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
+			return ss.createQuery("FROM Product AS P WHERE P.category = ?1").setInteger(1, cid).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+
+		return null;
+	}
+}

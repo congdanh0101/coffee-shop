@@ -1,0 +1,76 @@
+/* -- quantity box -- */
+
+.quantity {
+    display: inline-block;
+}
+
+.quantity .input-text.qty {
+    width: 50px;
+    height: 50px;
+    padding: 0 5px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #efefef;
+}
+
+.quantity.buttons_added {
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.quantity.buttons_added input {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    box-shadow: none;
+    font-size: 1.5rem;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+    padding: 7px 10px 8px;
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #efefef;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.quantity.buttons_added .minus {
+    border-right: 0;
+}
+
+.quantity.buttons_added .plus {
+    border-left: 0;
+}
+
+.quantity.buttons_added .minus:hover {
+    background: rgb(243, 119, 119);
+}
+
+.quantity.buttons_added .plus:hover {
+    background: rgb(116, 241, 116);
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+}
+
+.quantity.buttons_added .minus:focus,
+.quantity.buttons_added .plus:focus {
+    outline: none;
+}
+
+h2::after {
+    background-color: white;
+}

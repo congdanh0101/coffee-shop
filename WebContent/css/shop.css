@@ -1,0 +1,41 @@
+.navbar-shop {
+    width: 100%;
+    background-color: #76a0ee;
+    height: 5rem;
+}
+
+.logo {
+    width: 350px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.cart {
+    font-size: 2rem;
+    float: right;
+    margin-right: 40px;
+    margin-bottom: 200px;
+    color: rgb(137, 39, 161);
+}
+
+.list-group-item {
+    font-size: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 0 0 1px #76a0ee;
+}
+
+.card-footer {
+    display: flex;
+}
+
+.card-footer:hover {
+    color: white;
+    font-weight: bold;
+    background-color: rgb(252, 68, 68);
+}
+
+.row {
+    width: 100%;
+}

@@ -1,0 +1,213 @@
+header {
+    background-image: linear-gradient(45deg, rgba(65, 107, 150, 0.548) 30%, rgba(177, 145, 104, 0.65)), url("../resource/img/coffeeshop1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /* vh: view height  */
+    background-attachment: fixed;
+}
+
+.logo {
+    width: 350px;
+    float: left;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+.main_nav {
+    justify-content: space-around;
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+.main_nav li {
+    margin-right: 50px;
+    display: inline-block;
+}
+
+.main_nav li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 550;
+    font-size: 2rem;
+    transition: border-botoom .5s;
+    padding: 5px 0;
+}
+
+.main_nav li a:hover,
+.main_nav li a:active {
+    border-bottom: 2px solid white;
+}
+
+.heading-main-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -150%);
+    width: 1140px;
+    margin-top: 12.5%;
+    margin-left: 5%;
+}
+
+.heading-main-box h1 {
+    animation: FadeIn linear 1s;
+}
+
+.open {
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    width: fit-content;
+    position: absolute;
+    top: 95%;
+    left: 2%;
+}
+
+.about-picture {
+    position: relative;
+    margin-top: 50px;
+}
+
+.about-picture img {
+    width: 100%;
+    height: 300px;
+}
+
+
+/* .photo {
+    height: 300px;
+} */
+
+.product-section {
+    background-color: rgba(230, 250, 250, 0.5);
+}
+
+.product-picture {
+    position: relative;
+    margin-top: 50px;
+}
+
+.product-picture img {
+    width: 80%;
+}
+
+.product-picture img:hover {
+    box-shadow: 0px 0px 0px 1px #265077;
+}
+
+.product-title {
+    margin-top: 5px;
+    color: #434649;
+    font-size: 1.2rem;
+    width: 85%;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #e43535;
+    text-align: start;
+}
+
+.testimonial-section {
+    background-image: linear-gradient(90deg, rgba(94, 69, 54, 0.5) 30%, rgba(109, 122, 192, 0.75)), url("../resource/img/review.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.testimonial-section h2 {
+    margin-bottom: 70px;
+}
+
+blockquote {
+    width: 95%;
+    position: relative;
+    font-style: italic;
+    line-height: 140%;
+    color: white;
+    font-size: 1.25rem;
+}
+
+blockquote::before {
+    content: '\201C';
+    display: block;
+    font-size: 5rem;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+}
+
+cite {
+    display: block;
+    color: #8abae7;
+    margin-top: 25px;
+}
+
+cite img {
+    height: 100px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid #265077;
+}
+
+.contact-section {}
+
+.information {
+    color: black;
+    line-height: 200%;
+    word-spacing: 2px;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.small-icon {
+    color: rgb(247, 93, 93);
+    font-size: 1.2rem;
+}
+
+.small-icon:hover,
+.small-icon:active {
+    transform: scale(1.5);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.social-icon {
+    margin-top: 2rem;
+}
+
+.social-icon li {
+    display: inline-block;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+    color: #4784bd;
+}
+
+.social-icon li i {
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.social-icon li i:hover,
+.social-icon li i:active {
+    transform: scale(1.5);
+    color: #e67e22;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 3rem;
+}
+
+footer {
+    text-align: center;
+    font-size: 2rem;
+    background-color: #494949;
+    color: white;
+    padding: 1rem;
+}
