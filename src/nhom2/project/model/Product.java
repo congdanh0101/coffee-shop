@@ -1,5 +1,6 @@
 package nhom2.project.model;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -24,16 +25,17 @@ public class Product {
 	private String description;
 	private String image;
 	private String code;
-	
+
 	@ManyToOne
 	private Category category;
 
 	public Product() {
 		super();
 		name = "";
-		description="";
-		image="";
+		description = "";
+		image = "";
 	}
+
 	public String getImage() {
 		return image;
 	}
@@ -45,16 +47,28 @@ public class Product {
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
+
+	public Product(String name, int price, String description, Category category, String image) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+		this.image = image;
+	}
+
 	public Product(int id, String name, int price, String description, Category category, String image) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.description = description;
 		this.category = category;
-		this.image=image;
+		this.image = image;
 	}
 
 	public int getId() {
@@ -89,7 +103,6 @@ public class Product {
 		this.description = description;
 	}
 
-	
 	public Category getCategory() {
 		return category;
 	}
@@ -99,8 +112,9 @@ public class Product {
 	}
 
 	public String getPriceCurrencyFormat() {
-		Locale lc = new Locale("nv", "VN");
-		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
-		return currency.format(price);
+//		Locale lc = new Locale("nv", "VN");
+//		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
+		DecimalFormat currency = new DecimalFormat("###,###,###");
+		return currency.format(price) + " VNĐ";
 	}
 }

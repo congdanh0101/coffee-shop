@@ -1,52 +1,38 @@
 package nhom2.project.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "category")
-public class Category {
+public class Status {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
 	private String name;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "category")
-	private List<Product> listProduct;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "status")
+	private List<Bill> listBill;
 
-	public List<Product> getListProduct() {
-		return listProduct;
-	}
-
-	public void setListProduct(List<Product> listProduct) {
-		this.listProduct = listProduct;
-	}
-
-	public Category() {
+	public Status() {
 		super();
 		name = "";
 	}
 
-	public Category(String name) {
+	public Status(int id, String name) {
 		super();
+		this.id = id;
 		this.name = name;
 	}
 
-	public Category(int id, String name) {
+	public Status(String name) {
 		super();
-		this.id = id;
 		this.name = name;
 	}
 
@@ -66,4 +52,12 @@ public class Category {
 		this.name = name;
 	}
 
+	public List<Bill> getListBill() {
+		return listBill;
+	}
+
+	public void setListBill(List<Bill> listBill) {
+		this.listBill = listBill;
+	}
+	
 }

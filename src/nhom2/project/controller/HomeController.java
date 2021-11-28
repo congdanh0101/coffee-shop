@@ -39,6 +39,7 @@ public class HomeController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
 		List<Category> listCategory = new ArrayList<Category>();
 		listCategory = categoryDAO.getAllCategory();
 		

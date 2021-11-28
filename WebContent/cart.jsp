@@ -23,19 +23,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="navbar-shop">
-		<a href="index.html"> <img src="resource/img/logo.png" alt="photo"
-			class="logo" style="width: 100px; margin-top: 5px;">
-		</a>
-		<ul class="main_nav">
-			<li><a href="home">HomePage</a></li>
-			<li><a href="index.html#testimonial">How client think</a></li>
-			<li><a href="index.html#about">About</a></li>
-			<li><a href="index.html#contact">Contact</a></li>
-			<li><a href="#">Giỏ hàng <i class="fas fa-cart-plus"></i>
-			</a></li>
-		</ul>
-	</nav>
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<div class="container pb-5 mt-n2 mt-md-n3" style="margin-top: 4rem;">
 		<div class="row">
 			<div class="col-xl-9 col-md-8">
@@ -94,7 +82,7 @@
 									<input type="hidden" name="productId" value="${item.product.id }" /> 
 									<input type="hidden" name="size" value="${item.size.id }" />
 									<input type="hidden" name="topping" value="${item.topping.id }" />
-									<input type="submit" value="Update" class="btn btn-outline-secondary btn-sm btn-block mb-2 update-btn">
+									<input type="submit" value="Update" class="btn btn-outline-secondary btn-sm btn-block mb-2 update-btn" name="update">
 
 								</form>
 								<form action="CartController">
@@ -102,7 +90,7 @@
 									<input type="hidden" name="size" value="${item.size.id }" />
 									<input type="hidden" name="topping" value="${item.topping.id }" />
 									<input type="hidden" name="quantity" value="0" />
-									<input type="submit" value="Remove" class="btn btn-outline-secondary btn-sm btn-block mb-2 remove-btn">
+									<input type="submit" value="Remove" class="btn btn-outline-secondary btn-sm btn-block mb-2 remove-btn" name="update">
 								</form>
 
 							</div>
@@ -135,6 +123,17 @@
 							ry="2"></rect>
                         <line x1="1" y1="10" x2="23" y2="10"></line>
                     </svg>Proceed to Checkout
+				</a>
+				
+				<a class="btn btn-primary btn-block" href="admin" style="margin-top: 50px;"> <svg
+						xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						class="feather feather-credit-card mr-2">
+                        <rect x="1" y="4" width="22" height="16" rx="2"
+							ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>Admin
 				</a>
 
 			</div>

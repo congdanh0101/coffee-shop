@@ -2,7 +2,11 @@ package nhom2.project.util;
 
 import nhom2.project.model.Product;
 import nhom2.project.model.Topping;
+import nhom2.project.model.Bill;
+import nhom2.project.model.BillDetail;
+import nhom2.project.model.Status;
 import nhom2.project.model.Category;
+import nhom2.project.model.Customer;
 import nhom2.project.model.Size;
 
 import java.util.Properties;
@@ -42,7 +46,10 @@ public class HibernateUtil {
 				configuration.addAnnotatedClass(Category.class);
 				configuration.addAnnotatedClass(Topping.class);
 				configuration.addAnnotatedClass(Size.class);
-				
+				configuration.addAnnotatedClass(Customer.class);
+				configuration.addAnnotatedClass(Status.class);
+				configuration.addAnnotatedClass(Bill.class);
+				configuration.addAnnotatedClass(BillDetail.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();

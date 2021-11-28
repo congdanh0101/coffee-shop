@@ -13,25 +13,14 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/shop.css">
+<link rel="stylesheet" href="css/product_detail.css" />
 <script src="https://kit.fontawesome.com/4666aa241a.js"
 	crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
 <body>
 
-	<nav class="navbar-shop">
-		<a href="index.html"> <img src="resource/img/logo.png" alt="photo"
-			class="logo" style="width: 100px; margin-top: 5px;">
-		</a>
-		<ul class="main_nav">
-			<li><a href="home">HomePage</a></li>
-			<li><a href="index.html#testimonial">How client think</a></li>
-			<li><a href="index.html#about">About</a></li>
-			<li><a href="index.html#contact">Contact</a></li>
-			<li><a href="cart.jsp">Giỏ hàng <i class="fas fa-cart-plus"></i>
-			</a></li>
-		</ul>
-	</nav>
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 my-4">

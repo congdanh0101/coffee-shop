@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
 import nhom2.project.data.ProductDAO;
 import nhom2.project.data.SizeDAO;
@@ -53,6 +54,9 @@ public class CartController extends HttpServlet {
         String toppingId= request.getParameter("topping");
         System.out.println(toppingId);
         String quantityString = request.getParameter("quantity");
+        
+        String add = request.getParameter("addtocart");
+        String update = request.getParameter("update");
 
         HttpSession session = request.getSession(false);
         Cart cart = (Cart) session.getAttribute("cart");
@@ -94,9 +98,16 @@ public class CartController extends HttpServlet {
             cart.removeItem(lineItem);
         }
         session.setAttribute("cart", cart);
-
-        sc.getRequestDispatcher("/cart.jsp")
-                .forward(request, response);
+        
+        String path = getServletContext().getContextPath();
+        
+        if(add !=null && add!="")sc.getRequestDispatcher("/product_detail?pid="+productId)
+        .forward(request, response);
+        if(update!=null && update!="")sc.getRequestDispatcher("/cart.jsp")
+        .forward(request, response);
+        
+//        response.sendRedirect("product_detail?pid="+productId);
+        
 	}
 
 }

@@ -1,6 +1,7 @@
 package nhom2.project.model;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -53,14 +54,17 @@ public class LineItem implements Serializable{
 	}
 	
 	public String getPriceCurrencyFormat() {
-		Locale lc = new Locale("nv", "VN");
-		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
-		return currency.format(this.getPrice());
+//		Locale lc = new Locale("nv", "VN");
+//		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
+		DecimalFormat currency = new DecimalFormat("###,###,###");
+		return currency.format(this.getPrice()) + " VNĐ";
+//		return currency.format(this.getPrice());
 	}
 	
 	public String getTotalCurrencyFormat() {
-		Locale lc = new Locale("nv", "VN");
-		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
-		return currency.format(this.getTotal());
+//		Locale lc = new Locale("nv", "VN");
+//		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
+		DecimalFormat currency = new DecimalFormat("###,###,###");
+		return currency.format(this.getTotal()) + " VNĐ";
 	}
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,18 +29,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="navbar-shop">
-		<a href="index.html">  <img src="resource/img/logo.png" alt="photo" class="logo" style="width: 100px; margin-top: 5px;">
-		</a>
-		<ul class="main_nav">
-			<li><a href="home">HomePage</a></li>
-			<li><a href="index.html#testimonial">How client think</a></li>
-			<li><a href="index.html#about">About</a></li>
-			<li><a href="index.html#contact">Contact</a></li>
-			<li><a href="cart.jsp">Giỏ hàng <i class="fas fa-cart-plus"></i>
-			</a></li>
-		</ul>
-	</nav>
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<div class="container" style="margin-top: 150px;">
 		<div class="row">
 			<div class="col">
@@ -59,8 +48,7 @@
 				<div class="clearfix"></div>
 				<div class="quantity-box">
 					<h3>số lượng</h3>
-					<form action="${pageContext.request.contextPath}/CartController"
-						method="post">
+					<form action="${pageContext.request.contextPath}/CartController" method="post">
 						<div class="quantity buttons_added">
 							<input type="button" value="-" class="minus"> <input
 								type="number" step="1" min="1" max="" name="quantity" value="1"
@@ -70,44 +58,43 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="row">
-							<div class="col-8">
-                        <div class="size-product">
-                            <h3 style="margin-bottom: 10px;">Size</h3>
-                            <c:forEach var="item" items="${listSize }" begin="0" end="0"> 
-                            	<input type="radio" name="size" value="${item.id }" checked/>
-                            	<label for="">${item.name } (+${item.getPriceCurrencyFormat()})</label>
-                            </c:forEach>
-                            <c:forEach var="item" items="${listSize }" begin="1" end="2"> 
-                            	<input type="radio" name="size" value="${item.id }" style="margin-left: 20px;"/>
-                            	<label for="">${item.name } (+ ${item.getPriceCurrencyFormat()})</label>
-                            </c:forEach>      
-                        </div>
-                    </div>
-                    <div class="col-4">
-
-
-                        <div class="topping-product">
-                            <h3 style="margin-bottom: 10px;">topping</h3>
-                            <select name="topping" id="" style="width: 200%; font-size: 1.2rem;">
-                                <c:forEach var="item" items="${listTopping }">
-                                	<option value="${item.id }" style="height: 20px;">${item.name } (+ ${item.getPriceCurrencyFormat()})</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
+							<div class="col-9">
+								<div class="size-product">
+									<h3 style="margin-bottom: 10px;">Size</h3>
+									<c:forEach var="item" items="${listSize }" begin="0" end="0">
+										<input type="radio" name="size" value="${item.id }" checked />
+										<label for="">${item.name }
+											(+${item.getPriceCurrencyFormat()})</label>
+									</c:forEach>
+									<c:forEach var="item" items="${listSize }" begin="1" end="2">
+										<input type="radio" name="size" value="${item.id }"
+											style="margin-left: 10px;" />
+										<label for="">${item.name } (+
+											${item.getPriceCurrencyFormat()})</label>
+									</c:forEach>
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="topping-product">
+									<h3 style="margin-bottom: 10px;">topping</h3>
+									<select name="topping" id=""
+										style="width: 250%; font-size: 1rem;">
+										<c:forEach var="item" items="${listTopping }">
+											<option value="${item.id }" style="height: 20px;">${item.name }
+												(+ ${item.getPriceCurrencyFormat()})</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
 						</div>
 						<input type="hidden" name="productId" value="${product.id}">
-						<input type="submit" value="Add To Cart" class="btn btn-primary btn-lg" style="margin-top: 40px;'">
+						<input type="submit" value="Add To Cart" name="addtocart"
+							class="btn btn-primary btn-lg" style="margin-top: 40px;'">
 					</form>
 				</div>
 
 
-				<%-- <a href="CartController?pid=${product.id}">
-					<button type="button" class="btn btn-primary btn-lg">
-						Thêm vào giỏ hàng <i class="fas fa-cart-plus"></i>
-					</button>
-				</a> --%>
-
 			</div>
 </body>
+
 </html>
