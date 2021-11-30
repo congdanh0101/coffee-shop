@@ -2,6 +2,7 @@ package nhom2.project.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -55,17 +56,26 @@ public class RegisterVerify extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 		Customer customer = (Customer) session.getAttribute("customer");
+		Cart cart = (Cart) session.getAttribute("cart");
 		
 		Date dt = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat sdf = new SimpleDateFormat("HHmmss");
         System.out.println(sdf.format(dt));
         
+        
+        
         java.sql.Date sqlDate = new java.sql.Date(dt.getTime());
+        java.sql.Timestamp sqlTimeStamp = new Timestamp(dt.getTime());
+        
+        System.out.println(sqlDate);
+        System.out.println(sqlTimeStamp.getHours());
+        
         
 		String code = request.getParameter("authcode");
 
@@ -74,12 +84,15 @@ public class RegisterVerify extends HttpServlet {
 			Bill bill = new Bill();
 			bill.setCustomer(customer);
 			bill.setDate(sqlDate);
+			bill.setTime(sqlTimeStamp);
 			billDAO.saveBill(bill);
+			cart.insertBillDetail(bill);
 			session.setAttribute("newCustomer", customer);
-			response.sendRedirect("result.jsp");
 		} else {
 			
 		}
+		response.sendRedirect("result.jsp");
+		session.invalidate();
 	}
 
 }

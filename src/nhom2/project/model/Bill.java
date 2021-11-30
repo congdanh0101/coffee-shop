@@ -22,7 +22,10 @@ public class Bill {
 	private int id;
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	
+
+	@Temporal(TemporalType.TIME)
+	private Date time;
+
 	@OneToOne
 	private Customer customer;
 
@@ -36,19 +39,31 @@ public class Bill {
 		super();
 	}
 
-	public Bill(Date date, Customer customer, Status status) {
+	public Bill(Date date, Date time, Customer customer, Status status) {
 		super();
+		this.date = date;
+		this.time = time;
+		this.customer = customer;
+		this.status = status;
+
+	}
+
+	public Bill(int id, Date date, Date time, Customer customer, Status status) {
+		super();
+		this.id = id;
+		this.time = time;
 		this.date = date;
 		this.customer = customer;
 		this.status = status;
 	}
+	
 
-	public Bill(int id, Date date, Customer customer, Status status) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.customer = customer;
-		this.status = status;
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public int getId() {
@@ -90,5 +105,5 @@ public class Bill {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
+
 }

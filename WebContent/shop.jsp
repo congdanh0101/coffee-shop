@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="navbar_shop.jsp"></jsp:include>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 my-4">
@@ -53,7 +53,7 @@
 										<a href="product_detail?pid=${item.id }">${item.name }</a>
 									</h4>
 									<h5 style="color: red; font-weight: bold;">${item.getPriceCurrencyFormat() }</h5>
-									<p class=" card-text ">${item.description }</p>
+									<%-- <p class=" card-text ">${item.description }</p> --%>
 								</div>
 								<%-- <a class="card-footer text-center " href="CartController?pid=${item.id }"
 									style="cursor: pointer; text-decoration: none;">

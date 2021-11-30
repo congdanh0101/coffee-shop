@@ -23,7 +23,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="navbar_shop.jsp"></jsp:include>
 	<div class="container pb-5 mt-n2 mt-md-n3" style="margin-top: 4rem;">
 		<div class="row">
 			<div class="col-xl-9 col-md-8">
@@ -70,7 +70,7 @@
 							style="max-width: 10rem;">
 							<div class="form-group mb-2">
 								<label for="quantity1">Quantity</label>
-								<form action="CartController">
+								<form action="CartController" method="post">
 
 									<div class="quantity buttons_added">
 										<input type="button" value="-" class="minus"><input
@@ -85,7 +85,7 @@
 									<input type="submit" value="Update" class="btn btn-outline-secondary btn-sm btn-block mb-2 update-btn" name="update">
 
 								</form>
-								<form action="CartController">
+								<form action="CartController" method="post">
 									<input type="hidden" name="productId" value="${item.product.id }" />
 									<input type="hidden" name="size" value="${item.size.id }" />
 									<input type="hidden" name="topping" value="${item.topping.id }" />

@@ -35,7 +35,7 @@ public class RegisterController extends HttpServlet {
         System.out.println(host);
         port = context.getInitParameter("port");
         System.out.println(port);
-        username = context.getInitParameter("username");
+        username = "thecoffeeshop010101@gmail.com";
         System.out.println(username);
         pass = context.getInitParameter("pass");
         System.out.println(pass);
@@ -94,16 +94,18 @@ public class RegisterController extends HttpServlet {
 			e.printStackTrace();
 			test = false;
 		}
+		
+		System.out.println(test);
         
    		//check if the email send successfully
         if(test){
             HttpSession session  = request.getSession();
             session.setAttribute("customer", customer);
             resultMessage = "We already send a verification  code to your email.";
+            response.sendRedirect("verify.jsp");
         } else{
         	resultMessage = "There were an error. Please try again!";
    	   	}
-        response.sendRedirect("verify.jsp");
 	}
 
 }

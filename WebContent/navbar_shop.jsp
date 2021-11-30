@@ -6,7 +6,7 @@
 			class="logo" style="width: 100px; margin-top: 5px;">
 		</a>
 		<ul class="main_nav">
-			<li><a href="home">HomePage</a></li>
+			<li><a href="${pageContext.request.contextPath}/home">HomePage</a></li>
 			<li><a href="index.html#testimonial">How client think</a></li>
 			<li><a href="index.html#about">About</a></li>
 			<li><a href="index.html#contact">Contact</a></li>

@@ -29,7 +29,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="navbar_shop.jsp"></jsp:include>
 	<div class="container" style="margin-top: 150px;">
 		<div class="row">
 			<div class="col">

@@ -22,8 +22,8 @@
 </head>
 <body>
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
-	<form action="${pageContext.request.contextPath}/register">
+	<jsp:include page="navbar_shop.jsp"></jsp:include>
+	<form action="${pageContext.request.contextPath}/register" method="post">
 		<div class="container">
 			<div class="row">
 				<!-- panel preview -->

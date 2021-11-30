@@ -13,6 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
+
 	<context-param>
 		<param-name>host</param-name>
 		<param-value>smtp.gmail.com</param-value>
@@ -22,14 +23,21 @@
 		<param-name>port</param-name>
 		<param-value>587</param-value>
 	</context-param>
-
 	<context-param>
 		<param-name>username</param-name>
-		<param-value>congdanh.01.01.2001@gmail.com</param-value>
+		<param-value>thecoffeeshop010101@gmail.com</param-value>
 	</context-param>
-
 	<context-param>
 		<param-name>pass</param-name>
 		<param-value>congdanh0101</param-value>
 	</context-param>
+	
+	<filter>
+		<filter-name>login</filter-name>
+		<filter-class>nhom2.project.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/login</url-pattern>
+	</filter-mapping>
 </web-app>

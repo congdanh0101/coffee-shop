@@ -15,30 +15,39 @@ import nhom2.project.data.ProductDAO;
 import nhom2.project.model.Category;
 import nhom2.project.model.Product;
 
-@WebServlet("/category")
+@WebServlet({ "/category", "/categoryadmin" })
 public class CategoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProductDAO pdDAO;
 	private CategoryDAO cateDAO;
-    public CategoryController() {
-        super();
-        pdDAO = new ProductDAO();
-        cateDAO = new CategoryDAO();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int cid = Integer.parseInt(request.getParameter("cid"));
-		List<Product> listProductByCategory = new ArrayList<Product>();
-		listProductByCategory = pdDAO.getAllProductByCategory(cid);
-		
-		List<Category> listCategory = cateDAO.getAllCategory();
-		
-		request.setAttribute("listCategory", listCategory);
-		request.setAttribute("listProduct", listProductByCategory);
-		request.getRequestDispatcher("shop.jsp").forward(request, response);
+	public CategoryController() {
+		super();
+		pdDAO = new ProductDAO();
+		cateDAO = new CategoryDAO();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int cid = Integer.parseInt(request.getParameter("cid"));
+		String url = request.getRequestURI();
+		System.out.println(url);
+		List<Product> listProductByCategory = new ArrayList<Product>();
+		listProductByCategory = pdDAO.getAllProductByCategory(cid);
+
+		List<Category> listCategory = cateDAO.getAllCategory();
+
+		request.setAttribute("listCategory", listCategory);
+		request.setAttribute("listProduct", listProductByCategory);
+		if (url.contains("admin")) {
+			request.getRequestDispatcher("admin_product.jsp").forward(request, response);
+		} else
+			request.getRequestDispatcher("shop.jsp").forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

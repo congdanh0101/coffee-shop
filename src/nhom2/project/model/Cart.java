@@ -70,7 +70,7 @@ public class Cart implements Serializable {
 		return currency.format(this.getSubTotal()) + " VNĐ";
 	}
 
-	public void insertBillDetail() {
+	public void insertBillDetail(Bill bill) {
 		for (int i = 0; i < items.size(); i++) {
 			LineItem item = items.get(i);
 			BillDetail billdetail = new BillDetail();
@@ -78,6 +78,7 @@ public class Cart implements Serializable {
 			billdetail.setQuantity(item.getQuantity());
 			billdetail.setSize(item.getSize());
 			billdetail.setTopping(item.getTopping());
+			billdetail.setBill(bill);
 			BillDetailDAO billdetailDAO = new BillDetailDAO();
 			billdetailDAO.saveBillDetail(billdetail);
 		}
