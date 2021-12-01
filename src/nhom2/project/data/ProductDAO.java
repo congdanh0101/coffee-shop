@@ -1,13 +1,16 @@
 package nhom2.project.data;
 
 import java.sql.Connection;
-
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Query;
 
 import org.hibernate.Session;
 
 import org.hibernate.Transaction;
 
+import nhom2.project.model.BillDetail;
 import nhom2.project.model.Product;
 import nhom2.project.util.HibernateUtil;
 
@@ -89,6 +92,32 @@ public class ProductDAO {
 		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
 			trans = ss.beginTransaction();
 			ss.save(product);
+			trans.commit();
+		} catch (Exception e) {
+			if (trans != null)
+				trans.rollback();
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+	}
+
+	public void deleteProduct(int id) {
+		Transaction trans = null;
+		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
+			trans = ss.beginTransaction();
+			Product product = ss.get(Product.class, id);
+			if (product != null) {
+				List<BillDetail> billDetails = new ArrayList<BillDetail>();
+				BillDetailDAO billDetailDAO = new BillDetailDAO();
+				billDetails = billDetailDAO.getAllBillDetailByProductID(product.getId());
+				for (int i = 0; i < billDetails.size(); i++) {
+					billDetailDAO.deleteBillDetail(billDetails.get(i).getId());
+				}
+				String hql = "DELETE FROM Product WHERE id = :id";
+				Query query = ss.createQuery(hql);
+				query.setParameter("id", id);
+				query.executeUpdate();
+			}
 			trans.commit();
 		} catch (Exception e) {
 			if (trans != null)

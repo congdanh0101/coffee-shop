@@ -6,13 +6,13 @@
             <div class="col span-1-of-3">
                 <ul class="information">
                     <li>
-                        <i class="fas fa-map-marker-alt small-icon"></i> Addres: 21A, Le Lai street, HCM
+                        <i class="fas fa-map-marker-alt small-icon"></i> Addres: 1 Quang Trung, quận Gò Vấp, TPHCM
                     </li>
                     <li>
-                        <i class="fas fa-envelope small-icon"></i> Email: fahasa@hcmute.edu.vn
+                        <i class="fas fa-envelope small-icon"></i> Email: thecoffeshop010101@gmail.com
                     </li>
                     <li>
-                        <i class="fas fa-phone small-icon"></i> Phone: (+84)099-923-232-320
+                        <i class="fas fa-phone small-icon"></i> Điện thoại: (+84)90 289 1404
                     </li>
                 </ul>
                 <ul class="social-icon">
@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="col span-2-of-3">
-                <form action="thanks.html">
+                <form action="index.html">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingPassword" placeholder="Your name" required>
                         <label for="floatingPassword">Your name</label>

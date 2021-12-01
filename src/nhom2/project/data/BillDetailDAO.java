@@ -84,4 +84,16 @@ public class BillDetailDAO {
 		}
 		return null;
 	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<BillDetail> getAllBillDetailByProductID(int id) {
+		try {
+			return HibernateUtil.getSessionFactory().openSession()
+					.createQuery("FROM BillDetail AS BD WHERE BD.product = ?1").setInteger(1, id).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return null;
+	}
 }

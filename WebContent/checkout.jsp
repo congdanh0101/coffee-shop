@@ -28,13 +28,12 @@
 			<div class="row">
 				<!-- panel preview -->
 				<div class="col-sm-4" style="margin-left: -250px; width: 60%;">
-					<h2>Your information:</h2>
+					<h2>Thông tin cá nhân:</h2>
 					<div class="panel panel-default">
 						<div class="panel-body form-horizontal payment-form">
 							
 								<div class="form-group">
-									<label for="concept" class="col-sm-3 control-label">Your
-										name</label>
+									<label for="concept" class="col-sm-3 control-label">Họ và tên</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" id="fullName"
 											name="fullName" required>
@@ -48,22 +47,21 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="amount" class="col-sm-3 control-label">Your
-										phone</label>
+									<label for="amount" class="col-sm-3 control-label">Số điện thoại</label>
 									<div class="col-sm-9">
 										<input type="number" class="form-control" id="phoneNumber"
 											name="phoneNumber" required min="100000000" max="9999999999">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="status" class="col-sm-3 control-label">Address</label>
+									<label for="status" class="col-sm-3 control-label">Địa chỉ</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" id="address"
 											name="address" required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="status" class="col-sm-3 control-label">Comment</label>
+									<label for="status" class="col-sm-3 control-label">Ghi chú</label>
 									<div class="col-sm-9">
 										<textarea name="comment" id="" cols="30" rows="5"
 											class="form-control"></textarea>
@@ -75,7 +73,7 @@
 										<a href="cart.jsp">
 										<button type="button"
 											class="btn btn-default preview-add-button">
-											<span class="fas fa-cart-plus"></span> Back to cart
+											<span class="fas fa-cart-plus"></span> Quay lại giỏ hàng
 										</button>
 									</a>
 										<!-- <button type="submit" class=" btn btn-primary btn-block "
@@ -92,18 +90,18 @@
 				</div>
 				<!-- / panel preview -->
 				<div class="col-sm-8" style="width: 70%; margin-right: -150px;">
-					<h2>Preview:</h2>
+					<h2>kiểm tra:</h2>
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="table-responsive">
 								<table class="table preview-table">
 									<thead>
 										<tr>
-											<th>Product</th>
-											<th>Description</th>
-											<th>Quantity</th>
-											<th>Price</th>
-											<th>Total</th>
+											<th>Sản phẩm</th>
+											<th>Thông tin</th>
+											<th>Số lượng</th>
+											<th>Đơn giá</th>
+											<th>Thành tiền</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -112,7 +110,7 @@
 												<td>${item.product.name }<br /> <br /> <img
 													src="${item.product.image }" style="width: 100px" alt="" />
 												</td>
-												<td><%-- ${item.product.description } --%></td>
+												<td>${item.product.description }</td>
 												<td>${item.quantity }</td>
 												<td style="font-weight: bold;">${item.getPriceCurrencyFormat() }</td>
 												<td style="font-weight: bold;">${item.getTotalCurrencyFormat() }</td>
@@ -129,7 +127,7 @@
 					<div class="row text-right">
 						<div class="col-xs-12">
 							<h3 style="color: red; font-weight: bold;">
-								Subtotal: ${cart.getSubTotalCurrencyFormat() } <strong><span
+								Tổng tiền: ${cart.getSubTotalCurrencyFormat() } <strong><span
 									class="preview-total"></span></strong>
 							</h3>
 						</div>
@@ -140,8 +138,7 @@
 							style="margin-left: 77.5%; margin-top: 1rem;">
 							
 								<button type="submit" class=" btn btn-primary btn-block "
-									style="width: 150px; padding: 5px 0; font-size: 1.5rem;">Submit
-									all</button>
+									style="width: 150px; padding: 5px 0; font-size: 1.5rem;">Xác nhận</button>
 							
 
 						</div>

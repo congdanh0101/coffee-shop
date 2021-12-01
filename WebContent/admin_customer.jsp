@@ -32,11 +32,11 @@
 					<th scope="col">Phone</th>
 					<th scope="col">Email</th>
 					<th scope="col">Comment</th>
-					<th scope="col"></th>
+					
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach var="item" items="${listCustomer }">
+			<c:forEach var="item" items="${listCustomer}">
 				<tr>
 					<th scope="row">${item.getId() }</th>
 					<td>${item.getName() }</td>
@@ -44,7 +44,7 @@
 					<td>${item.getPhone() }</td>
 					<td>${item.getEmail() }</td>
 					<td>${item.getComment() }</td>
-					<td><a href="">Tracking</a></td>
+					
 				</tr>
 			</c:forEach>
 				

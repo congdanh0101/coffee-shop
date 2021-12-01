@@ -69,11 +69,7 @@ public class AdminController extends HttpServlet {
 				}
 			}
 		}
-		String name = request.getParameter("category");
-		if (name != null && name != "") {
-			saveCate(name);
-			url = "/admin_category.jsp";
-		}
+
 
 		List<Bill> listBill = new ArrayList<Bill>();
 		listBill = billDAO.getAllBill();
@@ -101,10 +97,5 @@ public class AdminController extends HttpServlet {
 		sc.getRequestDispatcher(url).forward(request, response);
 	}
 
-	public void saveCate(String name) {
-		Category category = new Category();
-		category.setName(name);
-		categoryDAO.saveCategory(category);
 
-	}
 }

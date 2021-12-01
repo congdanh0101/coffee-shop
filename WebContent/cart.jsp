@@ -29,14 +29,14 @@
 			<div class="col-xl-9 col-md-8">
 				<h2
 					class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3 bg-secondary">
-					<span>Products</span><a class="font-size-sm" href="home"
+					<span>Sản phẩm</span><a class="font-size-sm" href="home"
 						style="margin-left: 30rem;"><svg
 							xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 							viewBox="0 0 24 24" fill="none" stroke="currentColor"
 							stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
 							class="feather feather-chevron-left"
 							style="width: 1rem; height: 1rem;">
-							<polyline points="15 18 9 12 15 6"></polyline></svg>Continue shopping</a>
+							<polyline points="15 18 9 12 15 6"></polyline></svg>Tiếp tục mua hàng</a>
 				</h2>
 				<!-- Item-->
 				<c:forEach var="item" items="${cart.items}">
@@ -69,7 +69,7 @@
 							class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
 							style="max-width: 10rem;">
 							<div class="form-group mb-2">
-								<label for="quantity1">Quantity</label>
+								<label for="quantity1">Số lượng</label>
 								<form action="CartController" method="post">
 
 									<div class="quantity buttons_added">
@@ -79,18 +79,24 @@
 											class="input-text qty text" size="4" pattern="" inputmode=""><input
 											type="button" value="+" class="plus">
 									</div>
-									<input type="hidden" name="productId" value="${item.product.id }" /> 
-									<input type="hidden" name="size" value="${item.size.id }" />
-									<input type="hidden" name="topping" value="${item.topping.id }" />
-									<input type="submit" value="Update" class="btn btn-outline-secondary btn-sm btn-block mb-2 update-btn" name="update">
+									<input type="hidden" name="productId"
+										value="${item.product.id }" /> <input type="hidden"
+										name="size" value="${item.size.id }" /> <input type="hidden"
+										name="topping" value="${item.topping.id }" /> <input
+										type="submit" value="Cập nhật"
+										class="btn btn-outline-secondary btn-sm btn-block mb-2 update-btn"
+										name="update">
 
 								</form>
 								<form action="CartController" method="post">
-									<input type="hidden" name="productId" value="${item.product.id }" />
-									<input type="hidden" name="size" value="${item.size.id }" />
-									<input type="hidden" name="topping" value="${item.topping.id }" />
-									<input type="hidden" name="quantity" value="0" />
-									<input type="submit" value="Remove" class="btn btn-outline-secondary btn-sm btn-block mb-2 remove-btn" name="update">
+									<input type="hidden" name="productId"
+										value="${item.product.id }" /> <input type="hidden"
+										name="size" value="${item.size.id }" /> <input type="hidden"
+										name="topping" value="${item.topping.id }" /> <input
+										type="hidden" name="quantity" value="0" /> <input
+										type="submit" value="Xóa"
+										class="btn btn-outline-secondary btn-sm btn-block mb-2 remove-btn"
+										name="update">
 								</form>
 
 							</div>
@@ -105,13 +111,12 @@
 			</div>
 			<!-- Sidebar-->
 			<div class="col-xl-3 col-md-4 pt-3 pt-md-0">
-				<h2 class="h6 px-4 py-3 bg-secondary text-center">Subtotal</h2>
+				<h2 class="h6 px-4 py-3 bg-secondary text-center">Tổng tiền</h2>
 				<div class="h3 font-weight-semibold text-center py-3"
 					style="color: red;">${cart.getSubTotalCurrencyFormat() }</div>
 				<hr>
 				<h3 class="h6 pt-4 font-weight-semibold">
-					<span class="badge badge-success mr-2">Note</span>Additional
-					comments
+					<span class="badge badge-success mr-2">Note</span>Thêm ghi chú cho cửa hàng
 				</h3>
 				<textarea class="form-control mb-3" id="order-comments" rows="5"></textarea>
 				<a class="btn btn-primary btn-block" href="checkout"> <svg
@@ -122,19 +127,9 @@
                         <rect x="1" y="4" width="22" height="16" rx="2"
 							ry="2"></rect>
                         <line x1="1" y1="10" x2="23" y2="10"></line>
-                    </svg>Proceed to Checkout
+                    </svg> Thanh toán
 				</a>
-				
-				<a class="btn btn-primary btn-block" href="admin" style="margin-top: 50px;"> <svg
-						xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						viewBox="0 0 24 24" fill="none" stroke="currentColor"
-						stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-						class="feather feather-credit-card mr-2">
-                        <rect x="1" y="4" width="22" height="16" rx="2"
-							ry="2"></rect>
-                        <line x1="1" y1="10" x2="23" y2="10"></line>
-                    </svg>Admin
-				</a>
+
 
 			</div>
 		</div>

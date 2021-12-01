@@ -29,6 +29,7 @@
 					<th scope="col">#</th>
 					<th scope="col">Name</th>
 					<th scope="col">Price</th>
+					<th scope="col">Description</th>
 					<th scope="col">Code</th>
 					<th scope="col">Category</th>
 					<th scope="col">Remove</th>
@@ -40,9 +41,10 @@
 						<th scope="row">${item.getId() }</th>
 						<td>${item.getName() }</td>
 						<td>${item.getPriceCurrencyFormat() }</td>
+						<td>${item.getDescription() }</td>
 						<td>${item.getCode() }</td>
 						<td>${item.getCategory().getName() }</td>
-						<td><a href="">Remove</a></td>
+						<td><a href="AdminProduct?pid=${item.getId() }">Remove</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -52,18 +54,24 @@
 	<button class="open-button" onclick="openForm()">Add product</button>
 
 	<div class="form-popup" id="myForm">
-		<form action="#" class="form-container">
+		<form action="AdminProduct" class="form-container" method="post">
 
-			<label for="code"><b>Code</b></label> <input type="text"
-				placeholder="Enter code" name="code" required> <label
-				for="img"><b>Image</b></label> <input type="text"
-				placeholder="Enter image address" name="img" required> <label
-				for="name"><b>Name</b></label> <input type="text"
-				placeholder="Enter name" name="name" required> <label
-				for="price"><b>Price</b></label> <input type="number"
-				placeholder="Enter price" min="0" name="price" required> <label
-				for="category"><b>Category</b></label> 
-				<select name="category" id=""
+			<label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter name" name="name" required>
+
+            <label for="code"><b>Code</b></label>
+            <input type="text" placeholder="Enter code" name="code" required>
+
+            <label for="description"><b>Description</b></label>
+            <input type="text" placeholder="Enter description" name="description" required>
+
+            <label for="img"><b>Image</b></label>
+            <input type="text" placeholder="Enter image address" name="img" required>
+
+            <label for="price"><b>Price</b></label>
+            <input type="number" placeholder="Enter price" min="0" name="price" required>
+            
+			<select name="category" id=""
 				style="width: 50%;">
 				<c:forEach var="item" items="${listCategory }">
 					<option value="${item.getId() }">${item.getName() }</option>

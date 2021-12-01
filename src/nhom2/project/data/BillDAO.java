@@ -1,5 +1,12 @@
 package nhom2.project.data;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -9,6 +16,7 @@ import org.hibernate.Transaction;
 
 import nhom2.project.model.Bill;
 import nhom2.project.util.HibernateUtil;
+import nhom2.project.util.MySQLConnectionUtils;
 
 public class BillDAO {
 	public void saveBill(Bill bill) {
@@ -91,4 +99,7 @@ public class BillDAO {
 		}
 		return null;
 	}
+
+	
+	
 }

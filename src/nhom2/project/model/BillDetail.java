@@ -137,4 +137,11 @@ public class BillDetail {
 		DecimalFormat currency = new DecimalFormat("###,###,###");
 		return currency.format(this.getTotal()) + " VNĐ";
 	}
+	
+	public String getTotalCurrencyFormat(int sum) {
+//		Locale lc = new Locale("nv", "VN");
+//		NumberFormat currency = NumberFormat.getCurrencyInstance(lc);
+		DecimalFormat currency = new DecimalFormat("###,###,###");
+		return currency.format(sum) + " VNĐ";
+	}
 }

@@ -24,7 +24,7 @@ public class Product {
 	private int price;
 	private String image;
 	private String code;
-
+	private String description;
 	@ManyToOne
 	private Category category;
 
@@ -32,6 +32,15 @@ public class Product {
 		super();
 		name = "";
 		image = "";
+		description = "";
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getImage() {
@@ -50,21 +59,25 @@ public class Product {
 		this.code = code;
 	}
 
-	public Product(String name, int price, Category category, String image) {
+	public Product(String name, int price, Category category, String image, String description, String code) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.category = category;
 		this.image = image;
+		this.description = description;
+		this.code = code;
 	}
 
-	public Product(int id, String name, int price, Category category, String image) {
+	public Product(int id, String name, int price, Category category, String image, String description, String code) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.category = category;
 		this.image = image;
+		this.description = description;
+		this.code = code;
 	}
 
 	public int getId() {

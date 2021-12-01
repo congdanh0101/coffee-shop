@@ -50,7 +50,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<h3>Subtotal: </h3>
+		<h3 style="float: right; color: red; font-weight: bold;">Subtotal: ${subtotal}</h3>
 	</div>
 
 

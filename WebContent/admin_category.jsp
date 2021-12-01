@@ -39,7 +39,7 @@
 					<tr>
 						<th scope="row">${item.getId() }</th>
 						<td><a href="categoryadmin?cid=${item.getId() }">${item.getName() }</a></td>
-						<td><a href="#">remove</a></td>
+						<td><a href="AdminCategory?cid=${item.getId() }">remove</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -49,7 +49,7 @@
 	<button class="open-button" onclick="openForm()">Add Category</button>
 
 	<div class="form-popup" id="myForm">
-		<form action="${pageContext.request.contextPath}/admin"
+		<form action="AdminCategory"
 			class="form-container" method="post">
 
 			<label for="name"><b>Name</b></label> <input type="text"

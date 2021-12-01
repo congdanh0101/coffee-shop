@@ -40,7 +40,7 @@
 						<th scope="row">${item.getId() }</th>
 						<td>${item.getDate() }</td>
 						<td>${item.getTime() }</td>
-						<td>${item.getCustomer().getName() }</td>
+						<td><a href="AdminCustomer?cid=${item.getCustomer().getId() }">${item.getCustomer().getName() }</a></td>
 						<td>
 						<select name=status id="">
 								<c:forEach var="itemStatus" items="${listStatus }">

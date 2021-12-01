@@ -16,9 +16,12 @@ import javax.servlet.http.HttpSession;
 
 import nhom2.project.data.BillDAO;
 import nhom2.project.data.CustomerDAO;
+import nhom2.project.data.StatusDAO;
 import nhom2.project.model.Bill;
 import nhom2.project.model.Cart;
 import nhom2.project.model.Customer;
+import nhom2.project.model.Status;
+import nhom2.project.util.EmailUtils;
 
 /**
  * Servlet implementation class RegisterVerify
@@ -28,10 +31,22 @@ public class RegisterVerify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CustomerDAO customerDAO;
 	private BillDAO billDAO;
+	private String host;
+    private String port;
+    private String username;
+    private String pass;
 
 	public void init() {
 		customerDAO = new CustomerDAO();
-		billDAO = new BillDAO();
+		billDAO = new BillDAO();ServletContext context = getServletContext();
+        host = context.getInitParameter("host");
+        System.out.println(host);
+        port = context.getInitParameter("port");
+        System.out.println(port);
+        username = "thecoffeeshop010101@gmail.com";
+        System.out.println(username);
+        pass = context.getInitParameter("pass");
+        System.out.println(pass);
 	}
 
 	/**
@@ -85,12 +100,11 @@ public class RegisterVerify extends HttpServlet {
 			bill.setCustomer(customer);
 			bill.setDate(sqlDate);
 			bill.setTime(sqlTimeStamp);
-			
+			bill.setStatus(new StatusDAO().getStatus(1));
 			billDAO.saveBill(bill);
 			cart.insertBillDetail(bill);
+		
 			session.setAttribute("newCustomer", customer);
-		} else {
-			
 		}
 		response.sendRedirect("result.jsp");
 		session.invalidate();
