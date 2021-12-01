@@ -83,4 +83,18 @@ public class ProductDAO {
 
 		return null;
 	}
+
+	public void saveProduct(Product product) {
+		Transaction trans = null;
+		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
+			trans = ss.beginTransaction();
+			ss.save(product);
+			trans.commit();
+		} catch (Exception e) {
+			if (trans != null)
+				trans.rollback();
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+	}
 }

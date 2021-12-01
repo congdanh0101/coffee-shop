@@ -40,11 +40,11 @@
 				</h2>
 				<div class="clearfix"></div>
 				<h3 style="font-weight: bold; font-size: 2rem; color: red;">${product.getPriceCurrencyFormat() }</h3>
-				<div class="clearfix"></div>
+				<%-- <div class="clearfix"></div>
 				<div class="product-description">
 					<h3>thông tin sản phẩm:</h3>
 					<p>${product.description }</p>
-				</div>
+				</div> --%>
 				<div class="clearfix"></div>
 				<div class="quantity-box">
 					<h3>số lượng</h3>

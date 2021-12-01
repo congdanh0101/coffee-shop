@@ -54,17 +54,25 @@ public class AdminController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		// Get action
 		String action = request.getParameter("action");
 		String url = "";
 		ServletContext sc = request.getServletContext();
-
-		String[] actions = { "customer", "product", "bill", "category" ,"billdetail"};
-		for (int i = 0; i < actions.length; i++) {
-			if (action.equals(actions[i])) {
-				url = "/admin_" + actions[i] + ".jsp";
-				break;
+		if (action != null && action != "") {
+			String[] actions = { "customer", "product", "bill", "category", "billdetail" };
+			for (int i = 0; i < actions.length; i++) {
+				if (action.equals(actions[i])) {
+					url = "/admin_" + actions[i] + ".jsp";
+					break;
+				}
 			}
+		}
+		String name = request.getParameter("category");
+		if (name != null && name != "") {
+			saveCate(name);
+			url = "/admin_category.jsp";
 		}
 
 		List<Bill> listBill = new ArrayList<Bill>();
@@ -78,10 +86,10 @@ public class AdminController extends HttpServlet {
 
 		List<Customer> listCustomer = new ArrayList<Customer>();
 		listCustomer = customerDAO.getAllCustomer();
-		
+
 		List<BillDetail> listBillDetail = new ArrayList<BillDetail>();
 		listBillDetail = billdetailDAO.getAllBillDetail();
-		
+
 		List<Status> listStatus = new ArrayList<Status>();
 		listStatus = statusDAO.getAllStatus();
 
@@ -93,4 +101,10 @@ public class AdminController extends HttpServlet {
 		sc.getRequestDispatcher(url).forward(request, response);
 	}
 
+	public void saveCate(String name) {
+		Category category = new Category();
+		category.setName(name);
+		categoryDAO.saveCategory(category);
+
+	}
 }

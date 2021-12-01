@@ -73,11 +73,11 @@ public class BillDetailDAO {
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<BillDetail> getAllBillDetailByBillID(int id) {
 		try {
 			return HibernateUtil.getSessionFactory().openSession()
-					.createQuery("FROM BillDetail AS BD WHERE BD.bill_id = ?1").setInteger(1, id).getResultList();
+					.createQuery("FROM BillDetail AS BD WHERE BD.bill = ?1").setInteger(1, id).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception

@@ -85,6 +85,7 @@ public class RegisterVerify extends HttpServlet {
 			bill.setCustomer(customer);
 			bill.setDate(sqlDate);
 			bill.setTime(sqlTimeStamp);
+			
 			billDAO.saveBill(bill);
 			cart.insertBillDetail(bill);
 			session.setAttribute("newCustomer", customer);

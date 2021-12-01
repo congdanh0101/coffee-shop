@@ -1,4 +1,5 @@
 package nhom2.project.data;
+
 import nhom2.project.model.Category;
 import nhom2.project.util.HibernateUtil;
 
@@ -12,28 +13,42 @@ public class CategoryDAO {
 		Transaction trans = null;
 		Category productType = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // start a transaction
-            trans = session.beginTransaction();
-            // get an user object
-            productType = session.get(Category.class, ID);
-            // commit transaction
-            trans.commit();
-        } catch (Exception e) {
-            if (trans != null) {
-            	trans.rollback();
-            }
-            e.printStackTrace();
-        }
-        return productType;
+			// start a transaction
+			trans = session.beginTransaction();
+			// get an user object
+			productType = session.get(Category.class, ID);
+			// commit transaction
+			trans.commit();
+		} catch (Exception e) {
+			if (trans != null) {
+				trans.rollback();
+			}
+			e.printStackTrace();
+		}
+		return productType;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Category> getAllCategory(){
+	public List<Category> getAllCategory() {
 		try {
-        	return HibernateUtil.getSessionFactory().openSession().createQuery("From Category").getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+			return HibernateUtil.getSessionFactory().openSession().createQuery("From Category").getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
+	}
+
+	public void saveCategory(Category category) {
+		Transaction trans = null;
+		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
+			trans = ss.beginTransaction();
+			ss.save(category);
+			trans.commit();
+		} catch (Exception e) {
+			if (trans != null)
+				trans.rollback();
+			e.printStackTrace();
+			// TODO: handle exception
+		}
 	}
 }

@@ -1,6 +1,9 @@
+<%@page import="nhom2.project.model.Category"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="nhom2.project.model.*"%>
+<%@page import="nhom2.project.data.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +37,10 @@
 			<tbody>
 				<c:forEach var="item" items="${listCategory }">
 					<tr>
-					<th scope="row">${item.getId() }</th>
-					<td><a href="categoryadmin?cid=${item.getId() }">${item.getName() }</a></td>
-					<td><a href="#">remove</a></td>
-				</tr>
+						<th scope="row">${item.getId() }</th>
+						<td><a href="categoryadmin?cid=${item.getId() }">${item.getName() }</a></td>
+						<td><a href="#">remove</a></td>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
@@ -46,11 +49,11 @@
 	<button class="open-button" onclick="openForm()">Add Category</button>
 
 	<div class="form-popup" id="myForm">
-		<form action="#" class="form-container">
-
+		<form action="${pageContext.request.contextPath}/admin"
+			class="form-container" method="post">
 
 			<label for="name"><b>Name</b></label> <input type="text"
-				placeholder="Enter name" name="name" required>
+				placeholder="Enter name" name="category" required>
 
 			<button type="submit" class="btn">Submit</button>
 			<button type="button" class="btn cancel" onclick="closeForm()">Close</button>

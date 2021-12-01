@@ -60,6 +60,8 @@ public class RegisterController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	     // reads form fields
+		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("fullName");
 		System.out.println(name);
         String email = request.getParameter("email");

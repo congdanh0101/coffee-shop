@@ -112,7 +112,7 @@
 												<td>${item.product.name }<br /> <br /> <img
 													src="${item.product.image }" style="width: 100px" alt="" />
 												</td>
-												<td>${item.product.description }</td>
+												<td><%-- ${item.product.description } --%></td>
 												<td>${item.quantity }</td>
 												<td style="font-weight: bold;">${item.getPriceCurrencyFormat() }</td>
 												<td style="font-weight: bold;">${item.getTotalCurrencyFormat() }</td>

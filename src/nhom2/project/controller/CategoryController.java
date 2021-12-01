@@ -30,8 +30,10 @@ public class CategoryController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int cid = Integer.parseInt(request.getParameter("cid"));
+
 		String url = request.getRequestURI();
 		System.out.println(url);
+
 		List<Product> listProductByCategory = new ArrayList<Product>();
 		listProductByCategory = pdDAO.getAllProductByCategory(cid);
 

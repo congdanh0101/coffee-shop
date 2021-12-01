@@ -48,7 +48,7 @@
 								</c:forEach>
 						</select>
 							<button style="float: right;">update</button></td>
-						<td><a href="#">Detail</a></td>
+						<td><a href="bill?bid=${item.getId() }">Detail</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

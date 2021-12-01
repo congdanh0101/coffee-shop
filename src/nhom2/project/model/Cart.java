@@ -79,6 +79,8 @@ public class Cart implements Serializable {
 			billdetail.setSize(item.getSize());
 			billdetail.setTopping(item.getTopping());
 			billdetail.setBill(bill);
+			billdetail.setPrice(item.getPrice());
+			billdetail.setTotal(item.getTotal());
 			BillDetailDAO billdetailDAO = new BillDetailDAO();
 			billdetailDAO.saveBillDetail(billdetail);
 		}

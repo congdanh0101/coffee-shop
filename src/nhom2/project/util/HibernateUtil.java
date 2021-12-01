@@ -74,7 +74,7 @@ public class HibernateUtil {
 //				Properties settings = new Properties();
 //
 //				settings.put(Environment.DRIVER, "org.postgresql.Driver");
-//				settings.put(Environment.URL, "jdbc:postgresql://ec2-18-213-133-45.compute-1.amazonaws.com:5432/dc1pt3dq06kj79");
+//				settings.put(Environment.URL, "jdbc:postgresql://ec2-18-213-133-45.compute-1.amazonaws.com:5432/dc1pt3dq06kj79?useUnicode=yes&amp;characterEncoding=utf8");
 //				settings.put(Environment.USER, "atheigfpezysjh");
 //				settings.put(Environment.PASS, "4a8f7005fb5d2f9c6c85cd3c04eeeed226aa5a2ac35ab5f90d159faa7237fd8c");
 //				settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
