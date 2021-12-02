@@ -30,24 +30,18 @@
 					<th scope="col">Date</th>
 					<th scope="col">Time</th>
 					<th scope="col">Customer</th>
-					<th scope="col">Status</th>
 					<th scope="col">Detail</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="item" items="${listBill }">
-					<tr>
+					
+						<input type="hidden" value="${item.getId() }" name="bid"/>
+						<tr>
 						<th scope="row">${item.getId() }</th>
 						<td>${item.getDate() }</td>
 						<td>${item.getTime() }</td>
 						<td><a href="AdminCustomer?cid=${item.getCustomer().getId() }">${item.getCustomer().getName() }</a></td>
-						<td>
-						<select name=status id="">
-								<c:forEach var="itemStatus" items="${listStatus }">
-									<option value="${itemStatus.getId() }">${itemStatus.getName() }</option>
-								</c:forEach>
-						</select>
-							<button style="float: right;">update</button></td>
 						<td><a href="bill?bid=${item.getId() }">Detail</a></td>
 					</tr>
 				</c:forEach>

@@ -7,9 +7,9 @@
 			class="logo" style="width: 100px; margin-top: 5px;">
         </a>
         <ul class="main_nav">
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Bill</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Customer</a></li>
+            <li><a href="admin?action=category">Category</a></li>
+            <li><a href="admin?action=bill">Bill</a></li>
+            <li><a href="admin?action=product">Product</a></li>
+            <li><a href="admin?action=customer">Customer</a></li>
         </ul>
     </nav>

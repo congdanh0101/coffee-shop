@@ -47,9 +47,11 @@ public class AdminProduct extends HttpServlet {
 		int price = Integer.parseInt(request.getParameter("price"));
 		int cid = Integer.parseInt(request.getParameter("category"));
 
-		if (name != null && name != "" && code != null && code != "" && image != null && image != "") {
+		if (name != null && name != ""  && image != null && image != "") {
 			if (description == null)
 				description = "";
+			if(code == null)
+				code ="";
 			Product product = new Product(name, price, new CategoryDAO().getCategory(cid), image, description, code);
 			productDAO.saveProduct(product);
 		}

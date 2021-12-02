@@ -32,10 +32,12 @@ public class CustomerDAO {
 			trans = ss.beginTransaction();
 			Customer customer = ss.get(Customer.class, id);
 			if (customer != null) {
-				String hql = "DELETE FROM Customer WHERE id = :id";
-				Query query = ss.createQuery(hql);
-				query.setParameter("id", id);
-				query.executeUpdate();
+//				String hql = "DELETE FROM Customer WHERE id = :id";
+//				Query query = ss.createQuery(hql);
+//				query.setParameter("id", id);
+//				query.executeUpdate();
+				
+				ss.createQuery("DELETE FROM Customer WHERE id = :id").setParameter("id", id).executeUpdate();
 			}
 			trans.commit();
 		} catch (Exception e) {

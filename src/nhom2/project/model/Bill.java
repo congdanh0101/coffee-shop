@@ -32,29 +32,27 @@ public class Bill {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "bill")
 	private List<BillDetail> listBillDetail;
 
-	@ManyToOne
-	private Status status;
 
 	public Bill() {
 		super();
 	}
 
-	public Bill(Date date, Date time, Customer customer, Status status) {
+	public Bill(Date date, Date time, Customer customer) {
 		super();
 		this.date = date;
 		this.time = time;
 		this.customer = customer;
-		this.status = status;
+
 
 	}
 
-	public Bill(int id, Date date, Date time, Customer customer, Status status) {
+	public Bill(int id, Date date, Date time, Customer customer) {
 		super();
 		this.id = id;
 		this.time = time;
 		this.date = date;
 		this.customer = customer;
-		this.status = status;
+
 	}
 	
 
@@ -98,12 +96,6 @@ public class Bill {
 		this.listBillDetail = listBillDetail;
 	}
 
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+	
 
 }

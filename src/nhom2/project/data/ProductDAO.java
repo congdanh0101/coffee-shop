@@ -113,10 +113,12 @@ public class ProductDAO {
 				for (int i = 0; i < billDetails.size(); i++) {
 					billDetailDAO.deleteBillDetail(billDetails.get(i).getId());
 				}
-				String hql = "DELETE FROM Product WHERE id = :id";
-				Query query = ss.createQuery(hql);
-				query.setParameter("id", id);
-				query.executeUpdate();
+//				String hql = "DELETE FROM Product WHERE id = :id";
+//				Query query = ss.createQuery(hql);
+//				query.setParameter("id", id);
+//				query.executeUpdate();
+				
+				ss.createQuery("DELETE FROM Product WHERE id = :id").setParameter("id", id).executeUpdate();
 			}
 			trans.commit();
 		} catch (Exception e) {

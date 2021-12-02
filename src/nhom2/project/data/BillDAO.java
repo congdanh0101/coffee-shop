@@ -33,23 +33,6 @@ public class BillDAO {
 		}
 	}
 
-	public void updateBill(Bill bill) {
-		Transaction trans = null;
-		try (Session ss = HibernateUtil.getSessionFactory().openSession()) {
-			trans = ss.beginTransaction();
-			String hql = "UPDATE Bill SET status = :status " + "WHERE id = :id";
-			Query query = ss.createQuery(hql);
-			query.setParameter("status", bill.getStatus());
-			query.setParameter("id", bill.getId());
-			query.executeUpdate();
-			trans.commit();
-		} catch (Exception e) {
-			if (trans != null)
-				trans.rollback();
-			e.printStackTrace();
-			// TODO: handle exception
-		}
-	}
 
 	public void deleteBill(int id) {
 		Transaction trans = null;

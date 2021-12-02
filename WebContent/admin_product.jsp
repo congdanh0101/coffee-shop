@@ -60,10 +60,10 @@
             <input type="text" placeholder="Enter name" name="name" required>
 
             <label for="code"><b>Code</b></label>
-            <input type="text" placeholder="Enter code" name="code" required>
+            <input type="text" placeholder="Enter code" name="code" >
 
             <label for="description"><b>Description</b></label>
-            <input type="text" placeholder="Enter description" name="description" required>
+            <input type="text" placeholder="Enter description" name="description" >
 
             <label for="img"><b>Image</b></label>
             <input type="text" placeholder="Enter image address" name="img" required>
@@ -71,6 +71,7 @@
             <label for="price"><b>Price</b></label>
             <input type="number" placeholder="Enter price" min="0" name="price" required>
             
+            <label for="category"><b>Category</b></label>
 			<select name="category" id=""
 				style="width: 50%;">
 				<c:forEach var="item" items="${listCategory }">

@@ -16,11 +16,9 @@ import javax.servlet.http.HttpSession;
 
 import nhom2.project.data.BillDAO;
 import nhom2.project.data.CustomerDAO;
-import nhom2.project.data.StatusDAO;
 import nhom2.project.model.Bill;
 import nhom2.project.model.Cart;
 import nhom2.project.model.Customer;
-import nhom2.project.model.Status;
 import nhom2.project.util.EmailUtils;
 
 /**
@@ -100,7 +98,6 @@ public class RegisterVerify extends HttpServlet {
 			bill.setCustomer(customer);
 			bill.setDate(sqlDate);
 			bill.setTime(sqlTimeStamp);
-			bill.setStatus(new StatusDAO().getStatus(1));
 			billDAO.saveBill(bill);
 			cart.insertBillDetail(bill);
 		
