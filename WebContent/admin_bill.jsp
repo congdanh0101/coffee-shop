@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="row"></div>
 		<table class="table table-hover table-bordered table-responsive ">
-			<h2>list of Category</h2>
+			<h2>list of bill</h2>
 			<thead>
 				<tr>
 					<th scope="col">#</th>

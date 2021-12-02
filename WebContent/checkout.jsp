@@ -106,11 +106,15 @@
 									</thead>
 									<tbody>
 										<c:forEach var="item" items="${cart.items }">
-											<tr style="font-size: 20px;">
+											<tr style="font-size: 16px;">
 												<td>${item.product.name }<br /> <br /> <img
 													src="${item.product.image }" style="width: 100px" alt="" />
 												</td>
-												<td>${item.product.description }</td>
+												<td>
+												Size: ${item.size.name } <br />
+												Topping: ${item.topping.name }
+												
+												</td>
 												<td>${item.quantity }</td>
 												<td style="font-weight: bold;">${item.getPriceCurrencyFormat() }</td>
 												<td style="font-weight: bold;">${item.getTotalCurrencyFormat() }</td>
