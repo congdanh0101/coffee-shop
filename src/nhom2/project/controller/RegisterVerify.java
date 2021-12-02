@@ -30,21 +30,19 @@ public class RegisterVerify extends HttpServlet {
 	private CustomerDAO customerDAO;
 	private BillDAO billDAO;
 	private String host;
-    private String port;
-    private String username;
-    private String pass;
+	private String port;
+	private String username;
+	private String pass;
 
 	public void init() {
 		customerDAO = new CustomerDAO();
-		billDAO = new BillDAO();ServletContext context = getServletContext();
-        host = context.getInitParameter("host");
-        System.out.println(host);
-        port = context.getInitParameter("port");
-        System.out.println(port);
-        username = "thecoffeeshop010101@gmail.com";
-        System.out.println(username);
-        pass = context.getInitParameter("pass");
-        System.out.println(pass);
+		billDAO = new BillDAO();
+		ServletContext context = getServletContext();
+		host = context.getInitParameter("host");
+		port = context.getInitParameter("port");
+		username = "thecoffeeshop010101@gmail.com";
+		pass = context.getInitParameter("pass");
+
 	}
 
 	/**
@@ -76,20 +74,15 @@ public class RegisterVerify extends HttpServlet {
 		HttpSession session = request.getSession();
 		Customer customer = (Customer) session.getAttribute("customer");
 		Cart cart = (Cart) session.getAttribute("cart");
-		
+
 		Date dt = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("HHmmss");
-        System.out.println(sdf.format(dt));
-        
-        
-        
-        java.sql.Date sqlDate = new java.sql.Date(dt.getTime());
-        java.sql.Timestamp sqlTimeStamp = new Timestamp(dt.getTime());
-        
-        System.out.println(sqlDate);
-        System.out.println(sqlTimeStamp.getHours());
-        
-        
+
+		java.sql.Date sqlDate = new java.sql.Date(dt.getTime());
+		java.sql.Timestamp sqlTimeStamp = new Timestamp(dt.getTime());
+
+		System.out.println(sqlDate);
+		System.out.println(sqlTimeStamp.getHours());
+
 		String code = request.getParameter("authcode");
 
 		if (code.equals(customer.getCode())) {
@@ -100,7 +93,7 @@ public class RegisterVerify extends HttpServlet {
 			bill.setTime(sqlTimeStamp);
 			billDAO.saveBill(bill);
 			cart.insertBillDetail(bill);
-		
+
 			session.setAttribute("newCustomer", customer);
 		}
 		response.sendRedirect("result.jsp");

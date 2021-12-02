@@ -5,7 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css/login.css" />
-<title>Insert title here</title>
+<title>TCS Administrator</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2120/2120197.png" type="image/x-icon">
 </head>
 <body>
 

@@ -63,25 +63,13 @@ public class RegisterController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("fullName");
-		System.out.println(name);
         String email = request.getParameter("email");
-        System.out.println(email);
         String phone = request.getParameter("phoneNumber");
-        System.out.println(phone);
         String address = request.getParameter("address");
-        System.out.println(address);
         String comment = request.getParameter("comment"); 
         if(comment == null)comment = "";
-        System.out.println(comment);
-        String resultMessage = "";
 
         String code = EmailUtils.getRandom();
-        
-        Date dt = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        System.out.println(dt);
-        
-        
         
       //create new user using all information
         Customer customer = new Customer(name,email,code,phone,address,comment);
@@ -103,11 +91,8 @@ public class RegisterController extends HttpServlet {
         if(test){
             HttpSession session  = request.getSession();
             session.setAttribute("customer", customer);
-            resultMessage = "We already send a verification  code to your email.";
             response.sendRedirect("verify.jsp");
-        } else{
-        	resultMessage = "There were an error. Please try again!";
-   	   	}
+        } 
 	}
 
 }

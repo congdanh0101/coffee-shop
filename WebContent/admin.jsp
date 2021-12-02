@@ -16,7 +16,8 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/shop.css">
 <link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
+<title>TCS Administrator</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2120/2120197.png" type="image/x-icon">
 
 </head>
 <body>

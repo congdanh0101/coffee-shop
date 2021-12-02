@@ -19,7 +19,8 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/shop.css">
 <link rel="stylesheet" href="css/add.css">
-<title>Insert title here</title>
+<title>TCS Administrator</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2120/2120197.png" type="image/x-icon">
 </head>
 <body>
 	<jsp:include page="navbar_admin.jsp"></jsp:include>

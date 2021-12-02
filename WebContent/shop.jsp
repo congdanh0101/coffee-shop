@@ -16,7 +16,8 @@
 <link rel="stylesheet" href="css/product_detail.css" />
 <script src="https://kit.fontawesome.com/4666aa241a.js"
 	crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>The Coffee Shop</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2120/2120197.png" type="image/x-icon">
 </head>
 <body>
 

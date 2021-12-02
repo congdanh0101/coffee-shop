@@ -80,8 +80,6 @@ public class AdminController extends HttpServlet {
 		List<Customer> listCustomer = new ArrayList<Customer>();
 		listCustomer = customerDAO.getAllCustomer();
 
-		List<BillDetail> listBillDetail = new ArrayList<BillDetail>();
-		listBillDetail = billdetailDAO.getAllBillDetail();
 
 		request.setAttribute("listBill", listBill);
 		request.setAttribute("listCustomer", listCustomer);
